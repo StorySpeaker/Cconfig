@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimonBus_Config.Web</name>
+    </assembly>
+    <members>
+        <member name="M:SimonBus_Config.Web.Controllers.AccountController.Login">
+            <summary>
+            登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SimonBus_Config.Web.Controllers.AccountController.GetUsers">
+            <summary>
+            获取所有用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SimonBus_Config.Web.Controllers.ProjectController.GetAll">
+            <summary>
+            获取所有项目
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

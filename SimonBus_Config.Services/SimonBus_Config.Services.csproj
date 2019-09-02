@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SimonBus_Config.Core\SimonBus_Config.Core.csproj" />
+    <ProjectReference Include="..\SimonBus_Config.Repositories\SimonBus_Config.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

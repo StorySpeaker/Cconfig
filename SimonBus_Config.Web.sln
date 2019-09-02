@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimonBus_Config.Web", "SimonBus_Config.Web\SimonBus_Config.Web.csproj", "{D88BF76B-5C41-4BFA-B192-D836931410CA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimonBus_Config.Core", "SimonBus_Config.Core\SimonBus_Config.Core.csproj", "{9BC5E9FF-9A0A-4AEF-8864-120F426CDBC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "global", "global", "{406F796E-B76B-4907-9EAE-BA19546D8C0C}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimonBus_Config.Services", "SimonBus_Config.Services\SimonBus_Config.Services.csproj", "{55E0E8A7-8C64-459C-9F41-27018C118ABA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimonBus_Config.Repositories", "SimonBus_Config.Repositories\SimonBus_Config.Repositories.csproj", "{F18DAB90-B572-4681-94F5-903B333DDB1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D88BF76B-5C41-4BFA-B192-D836931410CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88BF76B-5C41-4BFA-B192-D836931410CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88BF76B-5C41-4BFA-B192-D836931410CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88BF76B-5C41-4BFA-B192-D836931410CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC5E9FF-9A0A-4AEF-8864-120F426CDBC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC5E9FF-9A0A-4AEF-8864-120F426CDBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC5E9FF-9A0A-4AEF-8864-120F426CDBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC5E9FF-9A0A-4AEF-8864-120F426CDBC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55E0E8A7-8C64-459C-9F41-27018C118ABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55E0E8A7-8C64-459C-9F41-27018C118ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55E0E8A7-8C64-459C-9F41-27018C118ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55E0E8A7-8C64-459C-9F41-27018C118ABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18DAB90-B572-4681-94F5-903B333DDB1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18DAB90-B572-4681-94F5-903B333DDB1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18DAB90-B572-4681-94F5-903B333DDB1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18DAB90-B572-4681-94F5-903B333DDB1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {039A0E5A-A9F4-4C10-AF20-3DC6ECE77241}
+	EndGlobalSection
+EndGlobal
