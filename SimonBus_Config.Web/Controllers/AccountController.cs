@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NLog;
 using SimonBus_Config.Services;
 using SimonBus_Config.Web.ViewModels;
 using System;
@@ -9,9 +10,10 @@ using System.Threading.Tasks;
 namespace SimonBus_Config.Web.Controllers
 {
     [Route("api/[controller]")]
-    public class AccountController
+    public class AccountController : Controller
     {
-        public IUserService UserService;
+        private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
+        public IUserService UserService { get; set; }
         public AccountController(IUserService userService)
         {
             UserService = userService;
@@ -34,6 +36,7 @@ namespace SimonBus_Config.Web.Controllers
         [HttpGet("GetUsers")]
         public async Task<List<UserResponse>> GetUsers()
         {
+            _logger.Info(new { message = "测试一下，不要紧张!" });
             var response = await UserService.GetUsers();
             return response.Select(x => new UserResponse() { UserName = x.Account, password = x.Password }).ToList();
         }

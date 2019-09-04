@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
 using NLog.Extensions.Logging;
+using NLog.Web;
 using Simon.Dapper;
 using Simon.Filter;
 using SimonBus_Config.Repositories;
@@ -83,9 +84,10 @@ namespace SimonBus_Config.Web
             //       o.Events = new JwtBearerEvents();
             //   });
 
+            //依赖注入服务层
             services.AddTransient<IUserService, UserService>();
 
-
+            //仓储层
             services.AddTransient<IUserRepository, UserRepository>();
 
             services.ConfigureSwaggerGen(c =>
@@ -99,7 +101,9 @@ namespace SimonBus_Config.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddNLog();
+            env.ConfigureNLog("NLog.config");
 
             if (env.IsDevelopment())
             {

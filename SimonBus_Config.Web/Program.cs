@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using NLog.Web;
 
 namespace SimonBus_Config.Web
 {
@@ -19,7 +20,7 @@ namespace SimonBus_Config.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseKestrel()
+                .UseNLog()
                 .UseUrls("http://*:5000")
                 .UseStartup<Startup>();
     }
