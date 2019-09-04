@@ -8,7 +8,7 @@ COPY SimonBus_Config.Web/SimonBus_Config.Web.csproj SimonBus_Config.Web/
 COPY SimonBus_Config.Services/SimonBus_Config.Services.csproj SimonBus_Config.Services/
 COPY SimonBus_Config.Core/SimonBus_Config.Core.csproj SimonBus_Config.Core/
 COPY SimonBus_Config.Repositories/SimonBus_Config.Repositories.csproj SimonBus_Config.Repositories/
-RUN dotnet restore "SimonBus_Config.Web/SimonBus_Config.Web.csproj" -s http://127.0.0.1:9988 -s https://api.nuget.org/v3/index.json
+RUN dotnet restore "SimonBus_Config.Web/SimonBus_Config.Web.csproj" -s http://210.22.106.178:9988 -s https://api.nuget.org/v3/index.json
 COPY . .
 WORKDIR "/src/SimonBus_Config.Web"
 RUN dotnet build "SimonBus_Config.Web.csproj" -c Release -o /app
