@@ -12,7 +12,7 @@ namespace SimonBus_Config.Web.Controllers
     [Route("api/[controller]")]
     public class AccountController : Controller
     {
-        private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
+        private static readonly ILogger _logger = LogManager.GetCurrentClassLogger();
         public IUserService UserService { get; set; }
         public AccountController(IUserService userService)
         {
@@ -37,6 +37,8 @@ namespace SimonBus_Config.Web.Controllers
         public async Task<List<UserResponse>> GetUsers()
         {
             _logger.Info(new { message = "测试一下，不要紧张!" });
+            _logger.Error(new { message = "测试测试" });
+            _logger.Warn(new { message = "wadadasda" });
             var response = await UserService.GetUsers();
             return response.Select(x => new UserResponse() { UserName = x.Account, password = x.Password }).ToList();
         }
