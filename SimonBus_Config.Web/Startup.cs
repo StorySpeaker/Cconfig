@@ -22,12 +22,17 @@ namespace SimonBus_Config.Web
         public Startup(IHostingEnvironment env)
         {
             var jsonFileName = "appsettings.json";
+            var jsonNLogName = "nlog.config";
             if (env.IsStaging() || env.IsProduction())
+            {
                 jsonFileName = $"appsettings.{env.EnvironmentName}.json";
+                jsonNLogName = $"nlog.{env.EnvironmentName}.config";
+            }
             var builder = new ConfigurationBuilder()
                  .SetBasePath(env.ContentRootPath)
                  .AddJsonFile(jsonFileName, true, true);
             builder.AddEnvironmentVariables();
+            env.ConfigureNLog(jsonNLogName);
             Configuration = builder.Build();
         }
 
@@ -41,7 +46,7 @@ namespace SimonBus_Config.Web
             services.AddAuthorization();
 
             var dbconfig = Configuration.GetSection("DatabaseConnection");
-            services.AddSimonDapper(dbconfig["ReadConnection"],dbconfig["WriteConnection"]);
+            services.AddSimonDapper(dbconfig["ReadConnection"], dbconfig["WriteConnection"]);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -101,9 +106,7 @@ namespace SimonBus_Config.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddNLog();
-            env.ConfigureNLog("NLog.config");
 
             if (env.IsDevelopment())
             {
