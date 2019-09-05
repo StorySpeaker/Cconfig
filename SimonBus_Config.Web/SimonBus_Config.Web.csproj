@@ -57,6 +57,9 @@
     <Content Update="nlog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="nlog.Production.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1production_1json__JsonSchema="http://json.schemastore.org/bootstraprc" /></VisualStudio></ProjectExtensions>
