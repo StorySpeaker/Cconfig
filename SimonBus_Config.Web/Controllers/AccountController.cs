@@ -36,11 +36,9 @@ namespace SimonBus_Config.Web.Controllers
         [HttpGet("GetUsers")]
         public async Task<List<UserResponse>> GetUsers()
         {
-            _logger.Info(new { message = "测试一下，不要紧张!" });
-            _logger.Error(new { message = "测试测试" });
-            _logger.Warn(new { message = "wadadasda" });
+            _logger.Info(new Logging() { Method = "GetUsers", Describe = "获取所有用户信息" });
             var response = await UserService.GetUsers();
-            return response.Select(x => new UserResponse() { UserName = x.Account, password = x.Password }).ToList();
+            return response.Select(x => new UserResponse() { Id = x.Id.ToString(), UserName = x.Account, password = x.Password, CreatedDate = x.CreatedDate }).ToList();
         }
     }
 }

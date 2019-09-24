@@ -47,7 +47,18 @@ namespace SimonBus_Config.Web
 
             var dbconfig = Configuration.GetSection("DatabaseConnection");
             services.AddSimonDapper(dbconfig["ReadConnection"], dbconfig["WriteConnection"]);
-
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder => {
+                        builder
+                        .WithOrigins("http://localhost:8002")
+                        //.AllowAnyOrigin()                
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                        .AllowAnyMethod();
+                    });
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 
@@ -112,13 +123,7 @@ namespace SimonBus_Config.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(builder =>
-            {
-                builder.AllowAnyOrigin();
-                builder.AllowAnyHeader();
-                builder.AllowAnyMethod();
-                builder.AllowCredentials();
-            });
+            app.UseCors();
             //app.UseExceptionHandler();
             app.UseAuthentication();
             app.UseStaticFiles();
