@@ -27,7 +27,7 @@ namespace SimonBus_Config.Web.Controllers
         [HttpPost("Login")]
         public async Task Login([FromBody]LoginResponse response)
         {
-            _logger.Info(JsonConvert.SerializeObject(new Logging() { Method = "Login", Describe = "登录", Data = response }));
+            _logger.Info(new { Method = "Login", Describe = "登录", Data = response });
         }
 
         /// <summary>
