@@ -24,9 +24,9 @@ namespace SimonBus_Config.Web.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("Login")]
-        public async Task Login()
+        public async Task Login([FromBody]LoginResponse response)
         {
-
+            _logger.Info(new Logging() { Method = "Login", Describe = "登录",Data =response });
         }
 
         /// <summary>
