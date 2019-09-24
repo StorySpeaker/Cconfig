@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NLog;
 using SimonBus_Config.Services;
 using SimonBus_Config.Web.ViewModels;
@@ -26,7 +27,7 @@ namespace SimonBus_Config.Web.Controllers
         [HttpPost("Login")]
         public async Task Login([FromBody]LoginResponse response)
         {
-            _logger.Info(new Logging() { Method = "Login", Describe = "登录",Data =response });
+            _logger.Info(JsonConvert.SerializeObject(new Logging() { Method = "Login", Describe = "登录", Data = response }));
         }
 
         /// <summary>
@@ -36,7 +37,7 @@ namespace SimonBus_Config.Web.Controllers
         [HttpGet("GetUsers")]
         public async Task<List<UserResponse>> GetUsers()
         {
-            _logger.Info(new Logging() { Method = "GetUsers", Describe = "获取所有用户信息" });
+            _logger.Info(JsonConvert.SerializeObject(new Logging() { Method = "GetUsers", Describe = "获取所有用户信息" }));
             var response = await UserService.GetUsers();
             return response.Select(x => new UserResponse() { Id = x.Id.ToString(), UserName = x.Account, password = x.Password, CreatedDate = x.CreatedDate }).ToList();
         }
