@@ -52,8 +52,8 @@ namespace SimonBus_Config.Web
                 options.AddDefaultPolicy(
                     builder => {
                         builder
-                        .WithOrigins("http://localhost:8002")
-                        //.AllowAnyOrigin()                
+                        //.WithOrigins("http://localhost:8002")
+                        .AllowAnyOrigin()                
                         .AllowAnyHeader()
                         .AllowCredentials()
                         .AllowAnyMethod();
