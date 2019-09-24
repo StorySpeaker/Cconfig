@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SimonBus_Config.Web.Controllers
 {
     [Route("api/[controller]")]
-    public class ProjectController
+    public class ProjectController : BaseController
     {
         public ProjectController()
         {
@@ -20,7 +20,7 @@ namespace SimonBus_Config.Web.Controllers
         [HttpGet("GetAll")]
         public async Task GetAll()
         {
-
+            
         }
     }
 }
